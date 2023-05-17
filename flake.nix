@@ -16,7 +16,7 @@
           filter (dep: (hasAttr "contentHash" dep) && (hasAttr "resolved" dep)) allDeps;
 
           getNuget = { name, resolved, contentHash, ... }: pkgs.fetchurl {
-            name = "${name}-${resolved}.nupkg";
+            name = "${name}.${resolved}.nupkg";
             url = "https://www.nuget.org/api/v2/package/${name}/${resolved}";
             sha512 = contentHash;
 
