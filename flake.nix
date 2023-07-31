@@ -37,6 +37,7 @@
             '') deps}
           '';
         in
-        joinWithDuplicates "${name}-deps" (map getNuget (concatMap (src: externalDeps (fromJSON (readFile src))) lockfiles));
+        (joinWithDuplicates "${name}-deps" (map getNuget (concatMap (src: externalDeps (fromJSON (readFile src))) lockfiles)))
+        // { sourceFile = null; };
     };
 }
