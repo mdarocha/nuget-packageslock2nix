@@ -23,14 +23,18 @@
         ]
       },
       "locked": {
-        "path": "../",
-        "type": "path"
+        "lastModified": 1748369279,
+        "narHash": "sha256-dT7MKV89wcELXXxotDWmgzd20Ddf5C+0CxTwsYOVDbc=",
+        "owner": "mdarocha",
+        "repo": "nuget-packageslock2nix",
+        "rev": "e99cc0d3a2fff6616b5938f88accfe75519d2fa8",
+        "type": "github"
       },
       "original": {
-        "path": "../",
-        "type": "path"
-      },
-      "parent": []
+        "owner": "mdarocha",
+        "repo": "nuget-packageslock2nix",
+        "type": "github"
+      }
     },
     "root": {
       "inputs": {
