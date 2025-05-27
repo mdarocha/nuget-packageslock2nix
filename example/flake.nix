@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nuget-packageslock2nix = {
-      url = "github:mdarocha/nuget-packageslock2nix/main";
+      url = "../";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -25,14 +25,12 @@
         };
       };
 
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
-
       devShells.x86_64-linux.default = let
         pkgs = import nixpkgs { system = "x86_64-linux"; };
       in
       pkgs.mkShell {
-        buildInputs = with pkgs; [
-          dotnet-sdk
+        buildInputs = [
+          pkgs.dotnetCorePackages.sdk_8_0
         ];
       };
   };

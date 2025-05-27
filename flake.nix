@@ -15,29 +15,13 @@
           in
           filter (dep: (hasAttr "contentHash" dep) && (hasAttr "resolved" dep)) allDeps;
 
-          getNuget = { name, resolved, contentHash, ... }: pkgs.fetchurl {
-            name = "${name}.${resolved}.nupkg";
+          getNuget = { name, resolved, contentHash, ... }: pkgs.dotnetCorePackages.fetchNupkg {
+            pname = name;
+            version = resolved;
             url = "https://www.nuget.org/api/v2/package/${name}/${resolved}";
-            sha512 = contentHash;
-
-            downloadToTemp = true;
-            postFetch = ''
-              mv $downloadedFile file.zip
-              ${pkgs.zip}/bin/zip -d file.zip ".signature.p7s"
-              mv file.zip $out
-            '';
+            hash = "sha512-${contentHash}";
           };
-
-          joinWithDuplicates = name: deps: pkgs.runCommand name { preferLocalBuild = true; allowSubstitues = false; } ''
-            mkdir -p $out
-            cd $out
-            ${pkgs.lib.concatMapStrings (x: ''
-              mkdir -p "$(dirname ${pkgs.lib.escapeShellArg x.name})"
-              ln -s -f ${pkgs.lib.escapeShellArg "${x}"} ${pkgs.lib.escapeShellArg x.name}
-            '') deps}
-          '';
         in
-        (joinWithDuplicates "${name}-deps" (map getNuget (concatMap (src: externalDeps (fromJSON (readFile src))) lockfiles)))
-        // { sourceFile = null; };
+        map getNuget (concatMap (src: externalDeps (fromJSON (readFile src))) lockfiles);
     };
 }
