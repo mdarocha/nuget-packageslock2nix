@@ -48,3 +48,20 @@ Then, use the `lib` output of this flake, passing the following variables:
 ### Example
 
 See the [`example`](./example) folder for an example of usage.
+
+### Filtering packages
+
+It may be necessary to filter out some packages from the list of dependencies.
+
+For example, when a conflict occurs with the existing nixpkgs' `dotnet-sdk.packages`,
+which is implicitly added by `buildDotnetModule`, the following error may occur:
+
+```
+> Running phase: patchPhase
+> Running phase: configureNuget
+> ln: failed to create symbolic link '/build/nuget.VAABYb/fallback/microsoft.net.illink.tasks/8.0.16': File exists
+```
+
+To work around that, specify the packages that cause conflicts in the `excludePackages` field.
+
+This field can be set to an list of package `name`s (`pname` and `version` joined by `-`).
