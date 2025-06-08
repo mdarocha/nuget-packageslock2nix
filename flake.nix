@@ -21,7 +21,7 @@
             getAttr attrNames
             filter hasAttr pipe
             readFile elem;
-          inherit (pkgs.lib.lists) concatMap;
+          inherit (pkgs.lib.lists) concatMap unique;
           inherit (pkgs.lib.strings) fromJSON;
 
           externalDeps = lockfile:
@@ -62,6 +62,7 @@
             !(elem "${dep.name}-${dep.resolved}" excludePackages)
           ))
           (map getNuget)
+          unique
         ];
     };
 }
