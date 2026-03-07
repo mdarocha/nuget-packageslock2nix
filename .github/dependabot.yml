@@ -4,5 +4,17 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "friday"
+      time: "21:00"
+      timezone: "Etc/UTC"
+    labels:
+      - "automated"
+  - package-ecosystem: "nuget"
+    directory: "/example"
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "21:00"
+      timezone: "Etc/UTC"
     labels:
       - "automated"
