@@ -9,6 +9,36 @@ updates:
       timezone: "Etc/UTC"
     labels:
       - "automated"
+    cooldown:
+      semver-patch-days: 3
+      semver-minor-days: 7
+      semver-major-days: 14
+  - package-ecosystem: "nix"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "21:00"
+      timezone: "Etc/UTC"
+    labels:
+      - "automated"
+    cooldown:
+      semver-patch-days: 3
+      semver-minor-days: 7
+      semver-major-days: 14
+  - package-ecosystem: "nix"
+    directory: "/example"
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "21:00"
+      timezone: "Etc/UTC"
+    labels:
+      - "automated"
+    cooldown:
+      semver-patch-days: 3
+      semver-minor-days: 7
+      semver-major-days: 14
   - package-ecosystem: "nuget"
     directory: "/example"
     schedule:
@@ -18,3 +48,7 @@ updates:
       timezone: "Etc/UTC"
     labels:
       - "automated"
+    cooldown:
+      semver-patch-days: 3
+      semver-minor-days: 7
+      semver-major-days: 14
