@@ -18,6 +18,10 @@ updates:
       timezone: "Etc/UTC"
     labels:
       - "automated"
+    groups:
+      nix-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "nix"
     directory: "/example"
     schedule:
@@ -27,6 +31,10 @@ updates:
       timezone: "Etc/UTC"
     labels:
       - "automated"
+    groups:
+      nix-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "nuget"
     directory: "/example"
     schedule:
