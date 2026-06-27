@@ -1,46 +1,50 @@
 version: 2
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "weekly"
-      day: "friday"
+      interval: weekly
+      day: friday
       time: "21:00"
-      timezone: "Etc/UTC"
+      timezone: Etc/UTC
     labels:
-      - "automated"
-  - package-ecosystem: "nix"
-    directory: "/"
+      - automated
+  - package-ecosystem: nix
+    directory: /
     schedule:
-      interval: "weekly"
-      day: "friday"
+      interval: weekly
+      day: friday
       time: "21:00"
-      timezone: "Etc/UTC"
+      timezone: Etc/UTC
     labels:
-      - "automated"
+      - automated
     groups:
       nix-dependencies:
         patterns:
           - "*"
-  - package-ecosystem: "nix"
-    directory: "/example"
+  - package-ecosystem: nix
+    directory: /example
     schedule:
-      interval: "weekly"
-      day: "friday"
+      interval: weekly
+      day: friday
       time: "21:00"
-      timezone: "Etc/UTC"
+      timezone: Etc/UTC
     labels:
-      - "automated"
+      - automated
     groups:
       nix-dependencies:
         patterns:
           - "*"
-  - package-ecosystem: "nuget"
-    directory: "/example"
+  - package-ecosystem: nuget
+    directory: /example
     schedule:
-      interval: "weekly"
-      day: "friday"
+      interval: weekly
+      day: friday
       time: "21:00"
-      timezone: "Etc/UTC"
+      timezone: Etc/UTC
     labels:
-      - "automated"
+      - automated
+    cooldown:
+      semver-patch-days: 3
+      semver-minor-days: 7
+      semver-major-days: 14
