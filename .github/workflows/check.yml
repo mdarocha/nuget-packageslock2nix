@@ -24,7 +24,7 @@ jobs:
         uses: mdarocha/nix-magic-setup@fbeadb287d13c1f3a3c2ccd9b7fb0f6201300997 # v1.3.0
       
       - name: Check Nix flake inputs
-        uses: DeterminateSystems/flake-checker-action@3164002371bc90729c68af0e24d5aacf20d7c9f6 # v12
+        uses: DeterminateSystems/flake-checker-action@de924abd783455e8429c858962b9e43062d19da1 # v13
       
       - name: Run flake check
         run: nix flake check -L
