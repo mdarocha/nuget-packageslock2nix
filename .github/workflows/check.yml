@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
       
       - name: Install Nix
-        uses: mdarocha/nix-magic-setup@95c70aabd32f788ff69e57c1c2433756b5825f6b # v2.1.2
+        uses: mdarocha/nix-magic-setup@7e04084f2a08e106ba6096dcb0a71f0f1130fc23 # v2.2.0
       
       - name: Check Nix flake inputs
         uses: DeterminateSystems/flake-checker-action@786422608c7bded2bbc9741ad9f91356842bf520 # v14
